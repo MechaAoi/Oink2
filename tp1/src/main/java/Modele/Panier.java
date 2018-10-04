@@ -1,4 +1,4 @@
-package com.mycompany.tp1;
+package Modele;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +12,7 @@ package com.mycompany.tp1;
  */
 import java.util.*;
 
-public class Panier
+public class Panier extends Observable
 {
     ArrayList<Orange> Oranges;
     int cap;
@@ -21,6 +21,10 @@ public class Panier
     {
         Oranges = new ArrayList<Orange>();
         cap = c;
+    }
+    public int getSize()
+    {
+        return Oranges.size();
     }
     public boolean estVide()
     {
@@ -36,6 +40,8 @@ public class Panier
             Oranges.add(o);
         else
             System.out.println("Panier Plein!");
+        setChanged();
+        notifyObservers();
     }
     public Orange getOrange(int i)
     {
@@ -47,6 +53,8 @@ public class Panier
             Oranges.remove(Oranges.size() - 1);
         else
             System.out.println("Panier Vide!");
+        setChanged();
+        notifyObservers();
     }
     public double getPrix()
     {
@@ -74,6 +82,8 @@ public class Panier
         {
             Oranges.remove(index[i]);
         }
+        setChanged();
+        notifyObservers();
     }
 
     public boolean equals(Panier p)
