@@ -10,6 +10,7 @@ import Modele.Panier;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import view.IHM;
 import view.VueGraphique;
 
@@ -43,6 +44,17 @@ public class Controleur implements ActionListener {
         if (b.getName().equals("moins"))
         {
             p1.retire();
+        }
+        if (b.getName().equals("buttonMoins"))
+        {
+            p1.retire();
+            JComboBox cb = inter_graph.getComboBox();
+            cb.setComboBox();
+        }
+        if (b.getName().equals("buttonPlus"))
+        {
+            Orange o = new Orange(0,"Corse");
+            p1.Ajoute(o);
         }
     }
     

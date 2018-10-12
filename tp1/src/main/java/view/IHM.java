@@ -11,6 +11,7 @@ import Controller.Controleur;
 import Modele.IFruit;
 import Modele.Orange;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 
 
 /**
@@ -134,14 +135,17 @@ public class IHM extends javax.swing.JFrame implements Observer{
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 
-    void addControler(Controleur c){
+    public void addControler(Controleur c){
         buttonPlus.addActionListener(c);
         buttonMoins.addActionListener(c);
     }
-    void setComboBox(ArrayList<IFruit> liste){
+    public void setComboBox(ArrayList<IFruit> liste){
         liste.forEach((f) -> {
             comboBox.addItem(f.getClass().toString());
         });
+    }
+    public JComboBox getComboBox(){
+        return comboBox;
     }
 
 }
