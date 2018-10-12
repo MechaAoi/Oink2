@@ -12,6 +12,7 @@ package Modele;
 public interface IFruit {
     public double getPrix();
     public String getOrigine();
+    public boolean isSeedless();
     public boolean Equals(Object o);
     public String ToString();
 }
