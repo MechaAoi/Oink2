@@ -19,9 +19,11 @@ public class TestVue {
         Panier panier  = new Panier(10);
         VueConsole vc = new VueConsole();
         VueGraphique vg = new VueGraphique();
+        IHM inter_graph=new IHM();
         Controleur c = new Controleur(panier,vg);
         vg.addControleur(c);
         vg.setVisible(true);
+        inter_graph.setVisible(true);
         panier.addObserver(vc);
         panier.addObserver(vg);
         
