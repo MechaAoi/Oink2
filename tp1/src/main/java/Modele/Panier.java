@@ -14,43 +14,43 @@ import java.util.*;
 
 public class Panier extends Observable
 {
-    ArrayList<Orange> Oranges;
+    ArrayList<IFruit> fruits;
     int cap;
     
     public Panier(int c)
     {
-        Oranges = new ArrayList<Orange>();
+        fruits = new ArrayList<IFruit>();
         cap = c;
     }
     public int getSize()
     {
-        return Oranges.size();
+        return fruits.size();
     }
     public boolean estVide()
     {
-        return Oranges.isEmpty();
+        return fruits.isEmpty();
     }
     public boolean estPlein()
     {
-        return Oranges.size() == cap;
+        return fruits.size() == cap;
     }
-    public void Ajoute(Orange o)
+    public void Ajoute(IFruit o)
     {
         if (!estPlein())
-            Oranges.add(o);
+            fruits.add(o);
         else
             System.out.println("Panier Plein!");
         setChanged();
         notifyObservers();
     }
-    public Orange getOrange(int i)
+    public IFruit getFruit(int i)
     {
-        return Oranges.get(i);
+        return fruits.get(i);
     }
     public void retire()
     {
         if (!estVide())
-            Oranges.remove(Oranges.size() - 1);
+            fruits.remove(fruits.size() - 1);
         else
             System.out.println("Panier Vide!");
         setChanged();
@@ -59,28 +59,28 @@ public class Panier extends Observable
     public double getPrix()
     {
         double prixPan = 0;
-        for (Orange orange : Oranges)
+        for (IFruit fs : fruits)
         {
-            prixPan += orange.getPrix();
+            prixPan += fs.getPrix();
         }
         return prixPan;
     }
     public void BoycotteOrigine(String ori)
     {
         int i = 0;
-        Orange index[] = new Orange[cap];
+        IFruit index[] = new IFruit[cap];
         
-        for (Orange orange : Oranges)
+        for (IFruit fs : fruits)
         {
-            if (orange.getOrigine().equals(ori))
+            if (fs.getOrigine().equals(ori))
             {
-                index[i] = orange;
+                index[i] = fs;
                 i++;
             }
         }
         for(i = 0; i < index.length; i++)
         {
-            Oranges.remove(index[i]);
+            fruits.remove(index[i]);
         }
         setChanged();
         notifyObservers();
@@ -89,9 +89,9 @@ public class Panier extends Observable
     public boolean equals(Panier p)
     {
         int i = 0;
-        for (Orange orange : Oranges)
+        for (IFruit fs : fruits)
         {
-            if (!orange.equals(p.getOrange(i)))
+            if (!fs.equals(p.getFruit(i)))
                 return false;
             i++;
         }
@@ -101,9 +101,9 @@ public class Panier extends Observable
     public String toString()
     {
         String s = "";
-        for (Orange orange : Oranges)
+        for (IFruit fs : fruits)
         {
-            s += orange.toString();
+            s += fs.toString();
         }
         return s;
     }
