@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 public class PanierTest 
 {
     private Panier pvide, p1, p2, pplein; 
-    private Orange omock1, omock2, o1, o2, o3;
+    private FruitSimple omock1, omock2, o1, o2, o3;
     
     public PanierTest()
     {
@@ -44,7 +44,7 @@ public class PanierTest
         p1 = new Panier(4);
         p2 = new Panier(4);
         pplein = new Panier(4);
-        omock1 = omock2 = mock(Orange.class);
+        omock1 = omock2 = mock(FruitSimple.class);
         o1 = new Orange(0.5, "ESP");
         o2 = new Orange(1.0, "FR");
         o3 = new Orange(0.75, "ESP");
@@ -127,10 +127,10 @@ public class PanierTest
      * Test of getOrange method, of class Panier.
      */
     @Test
-    public void testGetOrange() 
+    public void testGetFruit() 
     {
-        System.out.println("getOrange");
-        Orange result = p2.getOrange(0);
+        System.out.println("getFruit");
+        IFruit result = p2.getFruit(0);
         assertEquals(omock1, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

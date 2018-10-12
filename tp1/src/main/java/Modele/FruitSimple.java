@@ -9,7 +9,7 @@ package Modele;
  *
  * @author cb653705
  */
-public abstract class FruitSimple {
+public abstract class FruitSimple implements IFruit{
     private double prix;
     private String origine;
     private boolean seed;
