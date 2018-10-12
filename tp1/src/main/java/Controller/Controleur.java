@@ -10,6 +10,7 @@ import Modele.Panier;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import view.IHM;
 import view.VueGraphique;
 
 /**
@@ -19,11 +20,16 @@ import view.VueGraphique;
 public class Controleur implements ActionListener {
     Panier p1;
     VueGraphique vue;
+    IHM inter_graph;
     
     public Controleur(Panier p, VueGraphique v)
     {
         p1 = p;
         vue = v;
+    }
+    public Controleur(Panier p,IHM inter){
+        p1=p;
+        inter_graph=inter;
     }
 
     @Override
